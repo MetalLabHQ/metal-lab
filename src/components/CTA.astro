@@ -1,0 +1,43 @@
+---
+import type { Lang } from "../i18n/translations";
+import { useTranslations } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="relative py-48 border-t border-border-primary overflow-hidden bg-bg-primary">
+  <!-- Marquee effect background (optional, or just simple grid) -->
+  <div class="absolute inset-0 opacity-[0.02] pointer-events-none" 
+       style="background-image: radial-gradient(var(--text-primary) 1px, transparent 1px); background-size: 30px 30px;">
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-5xl px-6 text-center">
+    <!-- Small, minimal heading -->
+    <h2 class="animate-on-scroll opacity-0 translate-y-8 transition-all duration-700 text-3xl md:text-4xl font-mono font-bold tracking-tighter mb-8 leading-tight text-text-primary">
+      {t("cta.heading")}
+    </h2>
+
+    <!-- Minimal description -->
+    <p class="text-lg md:text-xl text-text-secondary mb-12 max-w-xl mx-auto font-light animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 delay-200">
+      {t("cta.subtitle")}
+    </p>
+
+    <!-- Smaller button -->
+    <div class="animate-on-scroll opacity-0 scale-95 transition-all duration-700 delay-300">
+      <a
+        href="https://metal-lab.gitbook.io/metallab"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 px-8 py-3 bg-text-primary text-bg-primary text-sm font-mono font-bold tracking-widest uppercase hover:bg-transparent hover:text-text-primary border border-transparent hover:border-text-primary transition-all duration-300 group"
+      >
+        {t("cta.button")}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

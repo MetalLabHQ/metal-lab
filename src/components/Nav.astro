@@ -1,0 +1,128 @@
+---
+import type { Lang } from "../i18n/translations";
+import { languages } from "../i18n/translations";
+import { useTranslations, getAlternateLangUrl } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const alternateLang = lang === "en" ? "zh" : "en";
+const alternateUrl = getAlternateLangUrl(Astro.url, alternateLang);
+
+const navLinks = [
+  { label: t("nav.github"), href: "https://github.com/MetalLabHQ" },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-border-primary bg-bg-primary/80 backdrop-blur-md transition-colors duration-300">
+  <div class="mx-auto max-w-7xl flex items-center justify-between px-6 h-16 md:h-20">
+    <!-- Logo -->
+    <a href={`/${lang}/`} class="flex items-center gap-2 text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
+      <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" fill="currentColor"/>
+        <path d="M1.99998 6V25.8177L5.72639 25.8177V11.0815L13.6873 13.6222L14.7036 25.8177H18.0912L17.075 11.9284L1.99998 6Z" class="fill-bg-primary"/>
+        <path d="M28.9305 17.3486L19.4463 13.1141V15.8242L26.7297 18.7037L27.746 25.8177H29.9468L28.9305 17.3486Z" class="fill-bg-primary"/>
+      </svg>
+      METAL LAB
+    </a>
+
+    <!-- Links -->
+    <div class="flex items-center gap-4 md:gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="relative text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-300 group hidden sm:inline-block"
+          target={link.href.startsWith("http") ? "_blank" : undefined}
+          rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+        >
+          {link.label}
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      ))}
+
+      <!-- Theme Switcher (Nucleo Sharp Essential — 24x24, stroke 2, square caps) -->
+      <div class="flex items-center border border-border-primary h-9">
+        <!-- System: Laptop (Nucleo Sharp IconLaptop) -->
+        <button class="theme-toggle-btn flex items-center justify-center w-9 h-full text-text-secondary hover:text-text-primary hover:bg-text-secondary/5 transition-colors duration-200 cursor-pointer" data-value="system" aria-label="System Theme" title={t("nav.theme.system")}>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 13V3H3V13" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/><path d="M23 21V17H17L16.293 17.707C16.105 17.895 15.851 18 15.586 18H8.414C8.149 18 7.895 17.895 7.707 17.707L7 17H1V21H23Z" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/></svg>
+        </button>
+        <!-- Light: Sun (Nucleo Sharp style) -->
+        <button class="theme-toggle-btn flex items-center justify-center w-9 h-full text-text-secondary hover:text-text-primary hover:bg-text-secondary/5 transition-colors duration-200 cursor-pointer" data-value="light" aria-label="Light Theme" title={t("nav.theme.light")}>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/><line x1="12" y1="2" x2="12" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="12" y1="20" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="22" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="4" y1="12" x2="2" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="19.07" y1="4.93" x2="17.66" y2="6.34" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="6.34" y1="17.66" x2="4.93" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="19.07" y1="19.07" x2="17.66" y2="17.66" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><line x1="6.34" y1="6.34" x2="4.93" y2="4.93" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+        </button>
+        <!-- Dark: Moon (Nucleo Sharp style) -->
+        <button class="theme-toggle-btn flex items-center justify-center w-9 h-full text-text-secondary hover:text-text-primary hover:bg-text-secondary/5 transition-colors duration-200 cursor-pointer" data-value="dark" aria-label="Dark Theme" title={t("nav.theme.dark")}>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 14.5A9 9 0 0 1 9.5 4a9 9 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/></svg>
+        </button>
+      </div>
+
+      <!-- Language switcher -->
+      <a
+        href={alternateUrl}
+        class="inline-flex items-center justify-center w-12 h-9 text-xs font-mono font-bold tracking-wider text-text-secondary border border-border-primary hover:border-text-primary hover:text-text-primary transition-all duration-300"
+        title={`Switch to ${languages[alternateLang]}`}
+      >
+        {lang === "en" ? "ZH" : "EN"}
+      </a>
+
+      <!-- CTA -->
+      <a
+        href="https://metal-lab.gitbook.io/metallab"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center justify-center h-9 px-6 text-sm font-mono font-bold tracking-wider text-bg-primary bg-text-primary hover:bg-transparent hover:text-text-primary border border-transparent hover:border-text-primary transition-all duration-300"
+      >
+        {t("nav.cta")}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+
+  function getTheme() {
+    return localStorage.getItem('theme') || 'system';
+  }
+
+  function updateThemeUI(theme) {
+    themeBtns.forEach(btn => {
+      const btnValue = btn.getAttribute('data-value');
+      if (btnValue === theme) {
+        btn.className = "theme-toggle-btn flex items-center justify-center w-9 h-full transition-all duration-200 bg-text-secondary/10 text-text-primary cursor-pointer";
+      } else {
+        btn.className = "theme-toggle-btn flex items-center justify-center w-9 h-full transition-colors duration-200 bg-transparent text-text-secondary hover:text-text-primary hover:bg-text-secondary/5 cursor-pointer";
+      }
+    });
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+    updateThemeUI(theme);
+  }
+
+  const currentTheme = getTheme();
+  applyTheme(currentTheme);
+
+  themeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = btn.getAttribute('data-value');
+      applyTheme(value);
+    });
+  });
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (getTheme() === 'system') {
+      applyTheme('system');
+    }
+  });
+</script>
