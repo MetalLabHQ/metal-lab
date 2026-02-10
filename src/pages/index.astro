@@ -1,4 +1,14 @@
 ---
-// Root path redirects to default language
-return Astro.redirect("/en/");
+// Static redirect — client-side meta refresh for GitHub Pages
 ---
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/zh/" />
+    <link rel="canonical" href="/zh/" />
+  </head>
+  <body>
+    <p>Redirecting to <a href="/zh/">/zh/</a>...</p>
+  </body>
+</html>

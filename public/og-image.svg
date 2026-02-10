@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#000"/>
+  <!-- Grid background -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <!-- M Logo -->
+  <svg x="80" y="180" width="96" height="96" viewBox="0 0 32 32">
+    <rect width="32" height="32" fill="#fff"/>
+    <path d="M1.99998 6V25.8177L5.72639 25.8177V11.0815L13.6873 13.6222L14.7036 25.8177H18.0912L17.075 11.9284L1.99998 6Z" fill="#000"/>
+    <path d="M28.9305 17.3486L19.4463 13.1141V15.8242L26.7297 18.7037L27.746 25.8177H29.9468L28.9305 17.3486Z" fill="#000"/>
+  </svg>
+  <!-- Title -->
+  <text x="200" y="230" fill="#ffffff" font-family="SF Mono, Menlo, monospace" font-weight="700" font-size="64">Metal Lab</text>
+  <!-- Subtitle -->
+  <text x="200" y="280" fill="#a1a1aa" font-family="SF Pro Text, system-ui, sans-serif" font-weight="300" font-size="28">From Scratch Metal 4</text>
+  <!-- Bottom tagline -->
+  <text x="80" y="550" fill="#52525b" font-family="SF Mono, Menlo, monospace" font-weight="400" font-size="18" letter-spacing="0.2em">METAL-LAB.DEV</text>
+</svg>
