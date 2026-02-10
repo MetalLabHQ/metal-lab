@@ -17,7 +17,7 @@ export const translations = {
     // Nav
     "nav.tutorials": "Tutorials",
     "nav.github": "GitHub",
-    "nav.cta": "Start Learning",
+    "nav.cta": "Start Reading",
     "nav.theme.system": "System",
     "nav.theme.light": "Light",
     "nav.theme.dark": "Dark",
@@ -29,7 +29,7 @@ export const translations = {
     "hero.heading.desc": "Graphics Programming",
     "hero.subtitle":
       "A beginner-friendly, step-by-step tutorial to Apple's next-generation GPU programming API. Build shaders, render pipelines, and real-time graphics — one chapter at a time.",
-    "hero.cta.primary": "Start Tutorial",
+    "hero.cta.primary": "Start Reading",
     "hero.cta.secondary": "Explore Topics",
 
     // Features
@@ -62,7 +62,7 @@ export const translations = {
     "cta.heading": "Ready to Start?",
     "cta.subtitle":
       "The tutorial is free, open-access, and constantly updated. Jump in and write your first Metal shader today.",
-    "cta.button": "Open Tutorial",
+    "cta.button": "Start Reading",
 
     // Footer
     "footer.tutorials": "Tutorials",
@@ -81,7 +81,7 @@ export const translations = {
     // Nav
     "nav.tutorials": "教程",
     "nav.github": "GitHub",
-    "nav.cta": "开始学习",
+    "nav.cta": "开始阅读",
     "nav.theme.system": "跟随系统",
     "nav.theme.light": "浅色模式",
     "nav.theme.dark": "深色模式",
@@ -93,7 +93,7 @@ export const translations = {
     "hero.heading.desc": "图形编程",
     "hero.subtitle":
       "面向初学者的 Apple 新一代 GPU 编程教程。逐章构建着色器、渲染管线与实时图形应用，循序渐进掌握 Metal 4。",
-    "hero.cta.primary": "开始教程",
+    "hero.cta.primary": "开始阅读",
     "hero.cta.secondary": "浏览主题",
 
     // Features
@@ -125,8 +125,8 @@ export const translations = {
     // CTA
     "cta.heading": "准备好开始了吗？",
     "cta.subtitle":
-      "教程完全免费、持续更新。现在就动手，编写你的第一个 Metal 着色器吧。",
-    "cta.button": "打开教程",
+      "本教程完全免费，持续更新，现在动手拒绝拖延。",
+    "cta.button": "开始阅读",
 
     // Footer
     "footer.tutorials": "教程",

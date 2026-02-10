@@ -22,10 +22,10 @@ const navLinks = [
   <div class="mx-auto max-w-7xl flex items-center justify-between px-6 h-16 md:h-20">
     <!-- Logo -->
     <a href={`/${lang}/`} class="flex items-center gap-2 text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
-      <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" fill="currentColor"/>
-        <path d="M1.99998 6V25.8177L5.72639 25.8177V11.0815L13.6873 13.6222L14.7036 25.8177H18.0912L17.075 11.9284L1.99998 6Z" class="fill-bg-primary"/>
-        <path d="M28.9305 17.3486L19.4463 13.1141V15.8242L26.7297 18.7037L27.746 25.8177H29.9468L28.9305 17.3486Z" class="fill-bg-primary"/>
+      <svg class="w-6 h-6 logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" class="logo-bg"/>
+        <path d="M1.99998 6V25.8177L5.72639 25.8177V11.0815L13.6873 13.6222L14.7036 25.8177H18.0912L17.075 11.9284L1.99998 6Z" class="logo-fg"/>
+        <path d="M28.9305 17.3486L19.4463 13.1141V15.8242L26.7297 18.7037L27.746 25.8177H29.9468L28.9305 17.3486Z" class="logo-fg"/>
       </svg>
       METAL LAB
     </a>
@@ -74,7 +74,7 @@ const navLinks = [
         href="https://metal-lab.gitbook.io/metallab"
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden sm:inline-flex items-center justify-center h-9 px-6 text-sm font-mono font-bold tracking-wider text-bg-primary bg-text-primary hover:bg-transparent hover:text-text-primary border border-transparent hover:border-text-primary transition-all duration-300"
+        class="hidden sm:inline-flex items-center justify-center h-9 px-6 text-sm font-mono font-bold tracking-wider text-bg-primary bg-text-primary hover:bg-bg-primary hover:text-text-primary border border-transparent hover:border-text-primary transition-all duration-300"
       >
         {t("nav.cta")}
       </a>

@@ -1,6 +1,7 @@
 ---
 import type { Lang } from "../i18n/translations";
 import { useTranslations } from "../i18n/utils";
+import ReadButton from "./ReadButton.astro";
 
 interface Props {
   lang: Lang;
@@ -22,13 +23,19 @@ const t = useTranslations(lang);
       
       <!-- Badge -->
       <div class="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 delay-100 mb-10">
-        <div class="inline-flex items-center gap-3 px-4 py-1.5 border border-border-primary bg-bg-primary/50 backdrop-blur-sm">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-text-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-text-primary"></span>
+        <a
+          href="https://developer.apple.com/cn/videos/play/wwdc2025/205"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 px-4 py-1.5 border border-border-primary bg-bg-primary/50 backdrop-blur-sm hover:bg-text-primary hover:text-bg-primary transition-all duration-300 group"
+        >
+          <span class="relative inline-flex h-4 w-4 items-center justify-center">
+            <span class="absolute inset-0 rounded-full border border-text-primary/30 group-hover:border-bg-primary/30"></span>
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-text-primary group-hover:bg-bg-primary"></span>
           </span>
-          <span class="text-xs font-mono uppercase tracking-[0.2em] text-text-primary">{t("hero.badge")}</span>
-        </div>
+          <span class="text-xs font-mono uppercase tracking-[0.2em]">{t("hero.badge")}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-40 group-hover:opacity-100 transition-opacity"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
       </div>
 
       <!-- Heading -->
@@ -43,18 +50,8 @@ const t = useTranslations(lang);
       </p>
 
       <!-- CTA -->
-      <div class="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 delay-500 flex flex-col sm:flex-row items-center gap-6">
-        <a
-          href="https://metal-lab.gitbook.io/metallab"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group relative inline-flex items-center justify-center px-8 py-4 text-sm font-mono font-bold uppercase tracking-widest text-bg-primary bg-text-primary overflow-hidden transition-all duration-300 hover:bg-transparent hover:text-text-primary border border-transparent hover:border-text-primary"
-        >
-          <span class="relative z-10 flex items-center gap-2">
-            {t("hero.cta.primary")}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </span>
-        </a>
+      <div class="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 delay-500">
+        <ReadButton text={t("hero.cta.primary")} href="https://metal-lab.gitbook.io/metallab" />
       </div>
 
     </div>
