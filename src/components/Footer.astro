@@ -11,16 +11,16 @@ const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-border-primary bg-bg-secondary text-text-secondary py-16 md:py-24">
+<footer class="border-t border-border-primary bg-bg-secondary text-text-secondary py-16 md:py-24 transition-colors duration-500">
   <div class="mx-auto max-w-7xl px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start justify-between">
       
       <!-- Brand -->
       <div class="flex flex-col gap-6">
-        <a href="/" class="text-2xl font-bold tracking-tighter text-text-primary hover:opacity-80 transition-opacity">
+        <a href="/" class="text-2xl font-bold tracking-tighter text-text-primary hover:opacity-80 transition-[opacity,color] duration-500">
           METAL LAB
         </a>
-        <p class="text-sm leading-relaxed max-w-md font-light text-text-secondary">
+        <p class="text-sm leading-relaxed max-w-md font-light text-text-secondary transition-colors duration-500">
           {t("footer.disclaimer")}
         </p>
       </div>
@@ -31,26 +31,26 @@ const currentYear = new Date().getFullYear();
           href="https://developer.apple.com/metal/"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm font-mono uppercase tracking-wider hover:text-text-primary transition-colors duration-300 relative group"
+          class="text-sm font-mono uppercase tracking-wider hover:text-text-primary transition-colors duration-500 relative group"
         >
           {t("footer.appleDocs")}
-          <span class="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-300 group-hover:w-full"></span>
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-500 group-hover:w-full"></span>
         </a>
         
         <a
           href="https://github.com/MetalLabHQ"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm font-mono uppercase tracking-wider hover:text-text-primary transition-colors duration-300 relative group"
+          class="text-sm font-mono uppercase tracking-wider hover:text-text-primary transition-colors duration-500 relative group"
         >
           {t("footer.github")}
-          <span class="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-300 group-hover:w-full"></span>
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-text-primary transition-all duration-500 group-hover:w-full"></span>
         </a>
       </div>
     </div>
 
     <!-- Bottom Bar -->
-    <div class="mt-16 pt-8 border-t border-border-primary flex items-center justify-center text-xs font-mono text-text-secondary/60 uppercase tracking-widest">
+    <div class="mt-16 pt-8 border-t border-border-primary flex items-center justify-center text-xs font-mono text-text-secondary/60 uppercase tracking-widest transition-colors duration-500">
       <span>&copy; {currentYear} METAL LAB. ALL RIGHTS RESERVED.</span>
     </div>
   </div>
